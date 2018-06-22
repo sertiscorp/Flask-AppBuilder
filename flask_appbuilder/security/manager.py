@@ -714,8 +714,6 @@ class BaseSecurityManager(AbstractSecurityManager):
         user = self.find_user(username=username)
         if user is not None and (not user.is_active()):
             return None
-        if hasattr(user, 'status') and user.status.value == 'online':
-            return 'ALREADY_LOGGED_IN'
         else:
             try:
                 import ldap
