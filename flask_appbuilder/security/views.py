@@ -381,7 +381,8 @@ class AuthView(BaseView):
 
 
 class AuthDBView(AuthView):
-    login_template = 'appbuilder/general/security/login_db.html'
+    login_template = 'appbuilder/general/security/login_ldap.html'
+    # login_template = 'appbuilder/general/security/login_db.html'
 
     @expose('/login/', methods=['GET', 'POST'])
     def login(self):
