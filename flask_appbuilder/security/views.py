@@ -126,7 +126,7 @@ class UserModelView(ModelView):
     label_columns = {'get_full_name': lazy_gettext('Full Name'),
                      'first_name': lazy_gettext('First Name'),
                      'last_name': lazy_gettext('Last Name'),
-                     'username': lazy_gettext('User Name'),
+                     'username': lazy_gettext('Username'),
                      'password': lazy_gettext('Password'),
                      'active': lazy_gettext('Enable'),
                      'email': lazy_gettext('E-Mail'),
@@ -152,11 +152,11 @@ class UserModelView(ModelView):
                                'The user role on the application, this will associate with a list of permissions'),
                            'conf_password': lazy_gettext('Please rewrite the user\'s password to confirm')}
 
-    list_columns = ['first_name', 'last_name', 'username', 'email', 'active', 'roles', 'status']
+    list_columns = ['first_name', 'last_name', 'username', 'email', 'active', 'status']
 
     show_fieldsets = [
         (lazy_gettext('User info'),
-         {'fields': ['username', 'active', 'roles', 'login_count']}),
+         {'fields': ['username', 'active', 'login_count']}),
         (lazy_gettext('Personal Info'),
          {'fields': ['first_name', 'last_name', 'email'], 'expanded': True}),
         (lazy_gettext('Audit Info'),
@@ -166,15 +166,15 @@ class UserModelView(ModelView):
 
     user_show_fieldsets = [
         (lazy_gettext('User info'),
-         {'fields': ['username', 'active', 'roles', 'login_count']}),
+         {'fields': ['username', 'active', 'login_count']}),
         (lazy_gettext('Personal Info'),
          {'fields': ['first_name', 'last_name', 'email'], 'expanded': True}),
     ]
 
     search_exclude_columns = ['password']
 
-    add_columns = ['first_name', 'last_name', 'username', 'active', 'email', 'roles']
-    edit_columns = ['first_name', 'last_name', 'username', 'active', 'email', 'roles']
+    add_columns = ['first_name', 'last_name', 'username', 'active', 'email']
+    edit_columns = ['first_name', 'last_name', 'username', 'active', 'email']
     user_info_title = lazy_gettext("Your user information")
 
     @expose('/userinfo/')
